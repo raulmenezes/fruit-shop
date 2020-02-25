@@ -1,4 +1,4 @@
-package raul.springframework.domain;
+package raul.springframework.fruitshop.domain;
 
 import lombok.Data;
 
@@ -7,8 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Data
 @Entity
+@Data
 public class Category {
 
     @Id
