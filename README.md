@@ -1,2 +1,2 @@
-# fruit-shop
+# Fruit Shop
 Fruit Shop
