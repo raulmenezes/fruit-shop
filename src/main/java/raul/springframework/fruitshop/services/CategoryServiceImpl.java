@@ -1,5 +1,6 @@
 package raul.springframework.fruitshop.services;
 
+import org.springframework.stereotype.Service;
 import raul.springframework.fruitshop.api.v1.mapper.CategoryMapper;
 import raul.springframework.fruitshop.api.v1.model.CategoryDTO;
 import raul.springframework.fruitshop.repositories.CategoryRepository;
@@ -7,6 +8,7 @@ import raul.springframework.fruitshop.repositories.CategoryRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryMapper categoryMapper;
