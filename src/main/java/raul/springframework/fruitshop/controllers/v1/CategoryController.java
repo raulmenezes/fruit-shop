@@ -1,4 +1,4 @@
-package raul.springframework.fruitshop.controllers;
+package raul.springframework.fruitshop.controllers.v1;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import raul.springframework.fruitshop.api.v1.model.CategoryDTO;
 import raul.springframework.fruitshop.api.v1.model.CategoryListDTO;
 import raul.springframework.fruitshop.services.CategoryService;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("api/v1/categories/")
