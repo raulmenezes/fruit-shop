@@ -3,6 +3,7 @@ package raul.springframework.fruitshop.services;
 import org.springframework.stereotype.Service;
 import raul.springframework.fruitshop.api.v1.mapper.CustomerMapper;
 import raul.springframework.fruitshop.api.v1.model.CustomerDTO;
+import raul.springframework.fruitshop.controllers.v1.CustomerController;
 import raul.springframework.fruitshop.domain.Customer;
 import raul.springframework.fruitshop.repositories.CustomerRepository;
 
@@ -20,6 +21,10 @@ public class CustomerServiceImpl implements CustomerService {
         this.customerRepository = customerRepository;
     }
 
+    public String getCustomerUrl(Long id) {
+        return CustomerController.BASE_URL + "/" + id;
+    }
+
     @Override
     public List<CustomerDTO> getAllCustomers() {
         return customerRepository
@@ -27,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .stream()
                 .map(customer -> {
                     CustomerDTO customerDTO = customerMapper.customerToCustomerDTO(customer);
-                    customerDTO.setCustomerUrl("api/v1/customer/" + customer.getId());
+                    customerDTO.setCustomerUrl(getCustomerUrl(customer.getId()));
                     return customerDTO;
                 })
                 .collect(Collectors.toList());
@@ -50,7 +55,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         CustomerDTO returnDto = customerMapper.customerToCustomerDTO(savedCustomer);
 
-        returnDto.setCustomerUrl("api/v1/customer/" + savedCustomer.getId());
+        returnDto.setCustomerUrl(getCustomerUrl(savedCustomer.getId()));
 
         return returnDto;
     }

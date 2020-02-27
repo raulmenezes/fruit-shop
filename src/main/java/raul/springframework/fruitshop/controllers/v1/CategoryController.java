@@ -11,8 +11,10 @@ import raul.springframework.fruitshop.api.v1.model.CategoryListDTO;
 import raul.springframework.fruitshop.services.CategoryService;
 
 @Controller
-@RequestMapping("api/v1/categories/")
+@RequestMapping(CategoryController.BASE_URL)
 public class CategoryController {
+
+    public static final String BASE_URL = "api/v1/categories";
 
     private final CategoryService categoryService;
 
