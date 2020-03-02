@@ -20,8 +20,14 @@ public class Bootstrap implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        loadCategories();
-        loadCustomers();
+
+        if (categoryRespository.count() == 0L) {
+            loadCategories();
+        }
+
+        if (customerRepository.count() == 0L) {
+            loadCustomers();
+        }
     }
 
     private void loadCategories() {
